@@ -57,12 +57,14 @@
 // export default App
 
 import React from 'react'
+import Photo from './Photo'
 // import Todo from './Todo'
 
 const App = () => {
   return (
-    <div style = {{display:"flex" , justifyContent:"center",alignItems:"center  ",height:"100%" ,width:"100%"}}>
+    <div style = {{display:"flex" , justifyContent:"center",alignItems:"center"}}>
       {/* <Todo/> */}
+      <Photo/>
     </div>
   )
 }

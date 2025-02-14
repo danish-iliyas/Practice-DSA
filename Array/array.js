@@ -69,6 +69,21 @@
            
 //          }
       
+// const Input= [3, 3, 4, 2, 4, 4, 2, 4, 4]
+// const majority =(Input)=>{
+//     let imap = new Map()
+//     for(let i =0;i<Input.length;i++){
+//         if(!imap.has(Input[i])){
+//           imap.set(Input[i], (imap.get(Input[i])||0)+1)
+//         }else{
+//             imap.set(Input[i], (imap.get(Input[i]))+1)
+//         }
+//     }
+//     let arr = [...imap]
+//     arr.sort((a,b)=>b[1]-a[1])
+//     return arr[0][0]
+// }
+// console.log(majority(Input))
    
     
 
@@ -124,3 +139,56 @@
 //     }
 // const major = reverseword(Input);
 // console.log(major)
+
+
+
+
+// revision 
+// 13. Find the Majority Element   
+
+
+//remove dublicate from array
+// reverse  words of array ;
+// let Input= ["Danish" , "Amir"]
+// *
+// **
+// ***
+// ****
+// *****
+
+//     *
+//    ***
+//   *****
+//  *******
+// *********
+
+        
+let n =5
+   
+   function pattern(){
+      for(let i =1;i<=n;i++){
+        let str =""
+           for(let j =1;j<=n-i;j++){
+            str+=" "
+           }  
+           for(let k=0;k<(2*i-1);k++){
+            str+="*"
+           }
+          console.log(str)
+      }
+   }
+          pattern(n)     
+
+// function pattern(n){
+//     for(let i =0;i<=n ;i++){
+//         let str = ""
+//         for(let j =0;j<=i;j++){ 
+//               str+="*"
+//         }
+//        console.log(str)
+//     }
+// }
+// pattern(n)
+              
+
+          

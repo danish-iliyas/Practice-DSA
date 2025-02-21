@@ -77,3 +77,93 @@
 // }
 
 // export default Todo
+
+
+
+import React, { useEffect, useState } from 'react'
+
+const Todo = () => {
+  const[value, setValue] = useState("")
+  const [list,setList]  = useState([])
+   const handleSubmit =()=>{
+      setList([...list, value]);
+      setValue("")
+   }
+   const handleDelete =(index)=>{
+    console.log(index,"index")
+    const updatedList = list.filter((_, i) => i !== index); 
+    console.log(updatedList,"hi")
+    setList(updatedList)
+   }
+   const handeEdit=(index)=>{
+    setValue(list[index])
+   }
+//    useEffect(()=>{
+//     console.log(list)
+//    })
+  return (
+    <div style={{
+        height: "100vh",
+        width: "100vw",
+        display:"flex",
+        alignItems:'center',
+        justifyContent:'center',
+       // background:'pink',
+        flexDirection:"column",
+        // border:"none",
+        border:"none"
+    }}>
+      <input 
+      style={{
+        height:"20px",
+        width:"100px"
+      }} type="text" value={value} onChange={(e)=>setValue(e.target.value) } />
+      <button style={{
+        background:'blue'
+      }} onClick={handleSubmit}>Add</button>
+      <div
+      style={{
+        display:"flex",
+        height:"50%",
+        alignItems:"center",
+        justifyContent:"center"
+      }}
+      >
+               <ul
+               style={{
+                 }}
+               >
+                
+                {list && list.map((item ,index)=>{
+                   return(
+                    <>
+                   <li key={index}>{item}</li>
+                   <button 
+                   style={{
+                    height:'20px',
+                    width:"40px",
+                    fontSize:"10px",
+                    background:"blue"
+                   }}
+                   onClick={()=>handleDelete(index)}
+                   >Delete</button>
+                    <button 
+                   style={{
+                    height:'20px',
+                    width:"40px",
+                    fontSize:"10px",
+                    background:"blue"
+                   }}
+                   onClick={()=>handeEdit(index)}
+                   >Edit</button>
+                   </>
+                   )
+                 }
+                        )}
+               </ul>
+      </div>
+    </div>
+  )
+}
+
+export default Todo
